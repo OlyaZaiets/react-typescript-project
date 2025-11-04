@@ -1,0 +1,105 @@
+.reading-dashboard {
+  // border: solid red 2px;
+  // background: linear-gradient(180deg, #06121f 0%, #0a1628 100%);
+  display: flex;
+  flex-direction: column;
+
+  align-content: center;
+  color: #e6e8ed;
+  padding: 3rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+    color: #ffffff;
+  }
+
+  .intro {
+    color: #b8c2d4;
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: left;
+    transition: all 0.3s ease;
+
+    &:hover {
+      border-color: #5c8ef2;
+      background: rgba(92, 142, 242, 0.08);
+      transform: translateY(-3px);
+    }
+
+    h3 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #cbd4e2;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+  }
+
+  &__stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.8rem;
+
+    .stat-item {
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      width: 100px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+
+      &:hover {
+      border-color: #5c8ef2;
+      background: rgba(92, 142, 242, 0.08);
+      transform: translateY(-3px);
+    }
+
+
+      h2 {
+        color: #5c8ef2;
+        font-size: 2.4rem;
+        margin-bottom: 0.3rem;
+      }
+
+      p {
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+      }
+
+      span {
+        color: #9ba7b8;
+        font-size: 0.85rem;
+      }
+    }
+  }
+}

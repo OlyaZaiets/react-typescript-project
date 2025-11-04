@@ -1,0 +1,55 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+
+
+}
+
+.modal-container {
+  background: #1b1b1b;
+  border: 1px solid #5c8ef2;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 80%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+.book-list {
+  list-style: none;
+  padding: 0;
+}
+
+.book-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.book-information {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+    h3, p {
+      margin: 0;
+      padding: 10px 0;
+  }
+}
+

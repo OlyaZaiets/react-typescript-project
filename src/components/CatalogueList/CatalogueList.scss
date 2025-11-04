@@ -1,0 +1,284 @@
+@use '../../styles/variables' as *;
+
+.container {
+  display: grid;
+  grid-template-columns: 0.5fr 6fr 0.5fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; /* опціонально, щоб обмежити дуже широкі екрани */
+  margin: 0 auto;
+}
+
+
+.catalogue-introduction {
+  grid-column: 2 / 3;      /* заголовок у центрі */
+  // background-color: rgba(0, 0, 0, 0.75);
+  h1 {
+  // text-align: center;
+  // border: solid 2px red;
+  padding: 8px 0;
+  color: $color-light-text;
+  font-size: $font-size-lg;
+  text-align: center;
+  margin: 0;
+}
+  p {
+    // grid-column: 2/3;
+    color: $color-light-text;
+    font-size: $font-size-md;
+    // text-align: center;
+    margin: 0;
+    padding: 10px 0;
+  }
+}
+
+.info-for-you {
+  grid-column: 2 / 3;      /* заголовок у центрі */
+  text-align: center;
+  border: solid 2px red;
+  padding: 8px 0;
+  color: $color-light-text;
+  margin: 0;
+}
+
+.book-wrapper {
+  grid-column: 2/3;
+  width: 100%;
+  display: grid;
+  // border: solid 2px red;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+  width: 100%;
+  max-width: 100%; 
+}
+
+.book-card {
+  // background-color: rgba(255, 255, 255, 0.95);
+  width: 100%;
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 2px rgb(117, 11, 204);
+  text-align: center;
+  border-radius: 8px;
+
+
+}
+
+.book-link {
+  text-decoration: none;
+  
+  h3 {
+    color: $color-light-text;
+    margin: 0;
+    padding: 10px;
+    font-size: $font-size-md;
+  }
+}
+
+.book-cover-image {
+  width: 100%; 
+  height: 350px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.button-container {
+  display: flex;
+  gap: 8px;
+  padding: 0 8px;
+
+  button {
+    background-color: #fff;
+    cursor: pointer;
+    // width: 100%;
+    background-color: $background-color;
+    // box-sizing: border-box;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    font-size: $font-size-sm;
+    margin-bottom: 20px;
+  }
+}
+
+.book-icons {
+  // color: $background-color;
+  width: 46px;
+  height: 46px;
+  stroke-width: 2px;
+}
+
+.pagination {
+  grid-column: 2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  white-space: nowrap; 
+  margin-bottom: 20px;
+
+  span {
+    
+    color: yellow;
+    font-size: $font-size-md;
+  }
+
+  button {
+    margin-bottom: 0;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 0.5fr 5fr 0.5fr;
+    padding: 0 1rem;
+  }
+
+  .catalogue-introduction {
+    h1 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+  }
+
+  .book-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .book-cover-image {
+    height: 300px;
+  }
+
+  .book-card h3 {
+    font-size: 1rem;
+  }
+}
+
+/* --- Телефони: до 768px --- */
+@media (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10px;
+    max-width: 95%;       /* щоб контент не тягнувся до країв */
+    margin: 0 auto;   
+  }
+
+  .catalogue-introduction {
+    text-align: center;
+    max-width: 700px; /* не розтягується занадто */
+
+    h1 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+    }
+  }
+
+  .info-for-you {
+    font-size: 1rem;
+    border: none;
+    margin-top: 0.5rem;
+  }
+
+  .book-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .book-card {
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+  }
+
+  .book-cover-image {
+    height: 250px;
+  }
+
+  .book-card h3 {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1.2rem;
+
+    span {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .book-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .book-cover-image {
+    height: 300px;
+  }
+
+  .catalogue-introduction h1 {
+    font-size: 1.2rem;
+  }
+
+  .catalogue-introduction p {
+    font-size: 0.9rem;
+  }
+
+.pagination {
+  display: flex;
+  flex-direction: row; /* 👈 тепер в один ряд */
+  justify-content: center;
+  align-items: center;
+  gap: 12px; /* відстань між кнопками та цифрами */
+  margin-top: 1rem;
+
+  button {
+    background-color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    &:hover:not(:disabled) {
+      background-color: #eee;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+      color: #000;
+    }
+  }
+
+  span {
+    font-size: 0.9rem;
+    color: yellow;
+    font-weight: 500;
+  }
+}
+}

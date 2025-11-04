@@ -1,0 +1,10 @@
+.main-layout {
+  background-image: url('../assets/Catalogue.png');
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/Catalogue.png');
+  min-height: calc(100vh - 96px);
+
+
+}

@@ -1,0 +1,86 @@
+@use '../../styles/variables' as *;
+
+.login-wrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  grid-template-rows: 0.3fr 1fr 0.3fr;
+  // min-height: calc(100vh - 96px);
+  // height: 100vh;
+  border: solid 2px red;
+  background-color: url('../../assets/Catalogue.png');
+
+}
+
+.login-container {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  border-radius: 8px;
+
+  border: solid 2px rgb(187, 20, 202);
+
+}
+
+
+.wrapper {
+  // border: solid 2px pink;
+  // margin: 40px;
+  padding: 40px;
+  }
+  .login-text {
+    h1, p {
+      color: $color-light-text;
+      margin: 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: $font-size-ml;
+      padding-bottom: 10px;
+
+    }
+
+    p {
+      font-size: $font-size-sm;
+      padding-bottom: 10px;
+    }
+
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: $font-size-sm;
+
+    // padding: 8px;
+  }
+}
+
+.button-login {
+  width: 100%;
+  background-color: $background-color;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: $font-size-sm;
+  margin-bottom: 20px;
+}
+
+.registration-question{
+  display: inline;
+  color: magenta;
+  font-size: $font-size-sm;
+  padding-right: 10px;
+
+}

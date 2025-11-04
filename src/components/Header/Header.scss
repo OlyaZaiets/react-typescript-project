@@ -1,0 +1,165 @@
+@use '../../styles/variables' as *;
+
+.header-container {
+  display: flex;
+  // border: solid 2px red;
+  padding: 1rem 2rem;
+  color: $color-light-text;
+  // padding: 0 50px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo-text {
+  color: $color-light-text;
+  font-size: $font-size-lg;
+  text-decoration: none;
+  
+}
+
+.search-container {
+  flex: 1;
+  margin: 0 20px;
+
+  
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: $font-size-sm;
+  }
+}
+
+.icons-container {
+  display: flex;
+  // justify-content: space-around;
+  gap: 30px;
+
+}
+
+.head-icon {
+  width: 34px;
+  height: 34px;
+}
+
+@media (min-width: 1024px) and (max-width: 1400px) {
+  .header-container {
+    padding: 1rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .logo-text {
+    font-size: 1.6rem; // було $font-size-lg (~1.6rem)
+  }
+
+  .search-container {
+    margin: 0 10px;
+
+    input {
+      font-size: 0.95rem;
+      padding: 6px 10px;
+    }
+  }
+
+  .head-icon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+/* 🔹 Планшети (до 1024px) */
+@media (max-width: 1024px) {
+  .header-container {
+    flex-wrap: wrap;
+    padding: 1rem;
+  }
+
+  .search-container {
+    order: 3;
+    width: 100%;
+    margin-top: 1rem;
+
+    input {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+  }
+
+  .icons-container {
+    gap: 20px;
+  }
+
+  .logo-text {
+    font-size: 1.4rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+    text-align: left;
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .icons-container {
+    display: flex;
+    justify-content: center;
+    flex: 1 1 100%;
+    gap: 1.8rem;
+
+    .head-icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .nav-link,
+    button {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        color: $background-color-hover;
+      }
+    }
+  }
+
+  /* Поле пошуку тепер окремим блоком під хедером */
+  .search-container {
+    order: 3;
+    flex: 1 1 100%;
+    margin-top: 0.5rem;
+
+    input {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+      background: rgba(255, 255, 255, 0.95);
+      color: #111;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      outline: none;
+
+      &:focus {
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+}
