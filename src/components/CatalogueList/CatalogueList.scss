@@ -3,49 +3,34 @@
 .container {
   display: grid;
   grid-template-columns: 0.5fr 6fr 0.5fr;
-  gap: 20px;
+  gap: 10px;
   width: 100%;
-  max-width: 1200px; /* опціонально, щоб обмежити дуже широкі екрани */
+  max-width: 1200px; 
   margin: 0 auto;
 }
 
 
 .catalogue-introduction {
-  grid-column: 2 / 3;      /* заголовок у центрі */
-  // background-color: rgba(0, 0, 0, 0.75);
+  grid-column: 2 / 3; 
   h1 {
-  // text-align: center;
-  // border: solid 2px red;
-  padding: 8px 0;
+  padding-top: 8px;
   color: $color-light-text;
   font-size: $font-size-lg;
   text-align: center;
   margin: 0;
 }
   p {
-    // grid-column: 2/3;
     color: $color-light-text;
     font-size: $font-size-md;
-    // text-align: center;
     margin: 0;
-    padding: 10px 0;
+    // padding: 5px 0;
   }
-}
-
-.info-for-you {
-  grid-column: 2 / 3;      /* заголовок у центрі */
-  text-align: center;
-  border: solid 2px red;
-  padding: 8px 0;
-  color: $color-light-text;
-  margin: 0;
 }
 
 .book-wrapper {
   grid-column: 2/3;
   width: 100%;
   display: grid;
-  // border: solid 2px red;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   justify-items: center;
@@ -54,18 +39,14 @@
 }
 
 .book-card {
-  // background-color: rgba(255, 255, 255, 0.95);
   width: 100%;
   display: flex;
-  
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   border: solid 2px rgb(117, 11, 204);
   text-align: center;
   border-radius: 8px;
-
-
 }
 
 .book-link {
@@ -94,9 +75,7 @@
   button {
     background-color: #fff;
     cursor: pointer;
-    // width: 100%;
     background-color: $background-color;
-    // box-sizing: border-box;
     padding: 8px;
     border-radius: 8px;
     border: none;
@@ -106,7 +85,6 @@
 }
 
 .book-icons {
-  // color: $background-color;
   width: 46px;
   height: 46px;
   stroke-width: 2px;
@@ -164,20 +142,19 @@
   }
 }
 
-/* --- Телефони: до 768px --- */
 @media (max-width: 768px) {
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0 10px;
-    max-width: 95%;       /* щоб контент не тягнувся до країв */
+    max-width: 95%; 
     margin: 0 auto;   
   }
 
   .catalogue-introduction {
     text-align: center;
-    max-width: 700px; /* не розтягується занадто */
+    max-width: 700px;
 
     h1 {
       font-size: 1.4rem;
@@ -245,10 +222,10 @@
 
 .pagination {
   display: flex;
-  flex-direction: row; /* 👈 тепер в один ряд */
+  flex-direction: row; 
   justify-content: center;
   align-items: center;
-  gap: 12px; /* відстань між кнопками та цифрами */
+  gap: 12px;
   margin-top: 1rem;
 
   button {

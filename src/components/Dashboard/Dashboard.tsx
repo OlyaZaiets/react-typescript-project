@@ -19,7 +19,6 @@ export const Dashboard = () => {
   const [booksList, setBooksList] = useState<any[]>([]);
   const [unsubscribeModal, setUnsubscribeModal] = useState<null | (() => void)>(null);
 
-
   useEffect(() => {
     if (loading || !user) return;
 
@@ -53,19 +52,17 @@ export const Dashboard = () => {
       unsubscribeFav();
       unsubscribePlan();
     }
-
   },[user, loading]);
 
 
   if (isLoadingDashboard) {
     return (
-      <div className="loading-container">
+      <div className='loading-container'>
         <CircularIndeterminate />
-        <p className="loader-text">Fetching your reading stats...</p>
+        <p className='loader-text'>Fetching your reading stats...</p>
       </div>
     );
   }
-
 
   const openModal = async (type: 'read'| 'favorite'| 'toRead' ) =>  {
     setIsModalOpen(true);
@@ -81,7 +78,7 @@ export const Dashboard = () => {
         ...doc.data(),
       }));
       
-      console.log("📚 Books fetched from Firebase:", books);
+      console.log('📚 Books fetched from Firebase:', books);
       setBooksList(books);
     });
     setUnsubscribeModal(() => unsubscribeTypeCall);
@@ -96,29 +93,29 @@ export const Dashboard = () => {
     };
 
   return (
-    <section className="reading-dashboard">
+    <section className='reading-dashboard'>
       <h1>Your Personalized Reading Dashboard</h1>
-      <p className="intro">
+      <p className='intro'>
         Once logged in, manage your journey through Stephen King's vast universe.
         Your dashboard provides a central hub for tracking milestones and connecting with new titles.
       </p>
 
-      <div className="reading-dashboard__cards">
-        <div className="card">
+      <div className='reading-dashboard__cards'>
+        <div className='card'>
           <h3>Read Books Overview</h3>
           <p>
             Keep track of all the stories you've conquered across Stephen King's universe.
             View completion dates, revisit favorite moments, and reflect on how your journey through fear and mystery has grown over time.
           </p>
         </div>
-        <div className="card">
+        <div className='card'>
           <h3>Favorites Collection</h3>
           <p>
             Your personal vault of unforgettable tales.
             Save the books that left a mark — from haunting classics to hidden gems — and return anytime to relive the ones that truly stayed with you.
           </p>
         </div>
-        <div className="card">
+        <div className='card'>
           <h3>To-Read List</h3>
           <p>
             Plan your next descent into the unknown.
@@ -127,18 +124,18 @@ export const Dashboard = () => {
         </div>
       </div>
 
-      <div className="reading-dashboard__stats">
-        <div className="stat-item" onClick={() => openModal('read')}>
+      <div className='reading-dashboard__stats'>
+        <div className='stat-item' onClick={() => openModal('read')}>
           <h2>{readCount}</h2>
           <p>Books Read</p>
           <span>Total journey so far</span>
         </div>
-        <div className="stat-item" onClick={() => openModal('favorite')}>
+        <div className='stat-item' onClick={() => openModal('favorite')}>
           <h2>{favCount}</h2>
           <p>Favorites </p>
           <span>Top chilling tales</span>
         </div>
-        <div className="stat-item" onClick={() => openModal('toRead')}>
+        <div className='stat-item' onClick={() => openModal('toRead')}>
           <h2>{planCount}</h2>
           <p>Plan</p>
           <span>Future trip</span>
@@ -159,5 +156,5 @@ export const Dashboard = () => {
       />
       )}
     </section>
-);
+  );
 };

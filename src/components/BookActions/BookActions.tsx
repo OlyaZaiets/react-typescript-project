@@ -20,7 +20,6 @@ export const BookActions = ( { book }: BookActionsProps ) => {
   // check books in Firebase store 
   useEffect(() => {
     if(!user) return;
-
     const checkBookStatus = async() => {
       try {
         const readRef= doc(db, 'users', user.uid, 'read', book.id);
@@ -46,7 +45,7 @@ export const BookActions = ( { book }: BookActionsProps ) => {
           read: readSnap.exists(),
           favorites: favSnap.exists(),
           toRead: planSnap.exists(),
-});
+    });
         
       } catch (error) {
         console.log('Error checking book status:', error)
@@ -55,9 +54,6 @@ export const BookActions = ( { book }: BookActionsProps ) => {
 
     checkBookStatus();
   }, [user, book.id])
-
-
- // Handle books 
 
   //Read
   const handleAddToRead  = async () => {
@@ -86,10 +82,8 @@ export const BookActions = ( { book }: BookActionsProps ) => {
     toast.success('Add to Read List 📖')
     console.log('Add to READ');
     }
-
-
-
   }
+
 // Fav
   const handleAddToFavorite  = async () => {
     if (!user) {
@@ -118,7 +112,6 @@ export const BookActions = ( { book }: BookActionsProps ) => {
   }
 
 //Plan
-
   const handleAddToPlanned  = async () => {
     if (!user) {
       toast('Please log in to mark books', {icon : '⚠️'})
@@ -143,9 +136,6 @@ export const BookActions = ( { book }: BookActionsProps ) => {
     }
 }
 
-
-
-
   return(
     <div className='button-container'>
       <button>
@@ -167,9 +157,6 @@ export const BookActions = ( { book }: BookActionsProps ) => {
           onClick={handleAddToPlanned}
         />
       </button>
-      {/* <button>
-        <MessageSquareText className='book-icons'/>
-      </button> */}
     </div>
   )
 }

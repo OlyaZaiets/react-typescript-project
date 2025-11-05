@@ -27,9 +27,8 @@ export const Registration = () => {
     console.log('confirm', confirmPassword);
   };
 
-
   return (
-    <div className="registration-wrapper">
+    <div className='registration-wrapper'>
       <div className='registration-container'>
         <div className='wrapper'>
           <div className='login-text'>
@@ -41,56 +40,56 @@ export const Registration = () => {
             onSubmit={handleSubmit}
           >
             {error && <p className='error-message'>{error}</p>}
-            <div className="input-group">
-              <label htmlFor="firstName">First Name:</label>
+            <div className='input-group'>
+              <label htmlFor='firstName'>First Name:</label>
               <input 
-                type="text" 
+                type='text' 
                 id='firstName' 
-                placeholder="[Enter your first name]"
+                placeholder='[Enter your first name]'
                 required
               />
             </div>
 
-            <div className="input-group">
-              <label htmlFor="lastName">Last Name: </label>
+            <div className='input-group'>
+              <label htmlFor='lastName'>Last Name: </label>
               <input 
-                type="text" 
+                type='text' 
                 id='lastName' 
-                placeholder="[Enter your last name]"
+                placeholder='[Enter your last name]'
                 required
               />
             </div>
 
-            <div className="input-group">
-              <label htmlFor="email">Email:</label>
+            <div className='input-group'>
+              <label htmlFor='email'>Email:</label>
               <input 
-                type="email"
+                type='email'
                 id='email'
-                placeholder="[Enter your email address]"
+                placeholder='[Enter your email address]'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
 
-            <div className="input-group">
-              <label htmlFor="password">Password:</label>
+            <div className='input-group'>
+              <label htmlFor='password'>Password:</label>
               <input 
-                type="password"
+                type='password'
                 id='password'
-                placeholder="[Create a password]"
+                placeholder='[Create a password]'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
             
-            <div className="input-group">
-              <label htmlFor="confirmPassword">Confirm Password:</label>
+            <div className='input-group'>
+              <label htmlFor='confirmPassword'>Confirm Password:</label>
               <input 
-                type="password"
+                type='password'
                 id='confirmPassword'
-                placeholder="[Confirm your password]"
+                placeholder='[Confirm your password]'
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
@@ -99,7 +98,7 @@ export const Registration = () => {
             <button className='create-btn' type='submit'>Create Account</button>
         </form >
           <p className='login-question'>Already have an account?</p> 
-          <Link to='/login'>Log In Here</Link>
+          <Link to='/login' className='login-link'>Log In Here</Link>
         </div>
       </div>
     </div>

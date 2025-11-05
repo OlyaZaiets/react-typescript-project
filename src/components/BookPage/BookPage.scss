@@ -1,25 +1,20 @@
 @use '../../styles/variables' as *;
 
 .book-container {
-  // border: solid 2px yellow;
-  // background: #1b1b1b;
   color: $color-light-text;
   margin: 0 auto; 
   border-radius: 8px;
   padding: 24px;
-  // width: 80%;
   max-width: 1200px;
   box-shadow: 0 0 30px rgba(0,0,0,0.4);
-  
 }
 
 .book-body {
   display: grid;
   grid-template-columns: 1fr 4fr;
   gap: 20px;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 0.7fr;
 }
-
 
 .book-left-cover{
   grid-column: 1/2;
@@ -55,8 +50,6 @@
   flex-direction: column;
 
   button {
-    // display: inline-block;
-  // padding: 0.75rem 1.5rem;
   margin: 15px auto;
   background-color: $background-color; 
   color: $color-light-text;
@@ -92,20 +85,13 @@
 .comments-list {
   grid-column: 2/3;
   grid-row: 2/3;
-  // margin-top: 1.5rem;
-  // padding-top: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-  
-   max-height: 150px; /* 🔹 Висота видимої області */
-  overflow-y: auto;  /* 🔹 Вертикальний скрол */
-
+  max-height: 150px; 
+  overflow-y: auto;  
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 
@@ -131,7 +117,6 @@
     background: rgba(255, 255, 255, 0.08);
     border-radius: 8px;
     padding: 0.5rem 1rem;
-    // transition: background 0.2s ease;
     line-height: 1.4;
 
     &:hover {
@@ -179,8 +164,6 @@
   }
 }
 
-
-
 @media (max-width: 1024px) {
   .book-body {
     display: grid;
@@ -194,7 +177,6 @@
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }
-
 
   .buttons-action { 
     grid-column: 1 / 2;
@@ -229,7 +211,6 @@
     object-fit: contain;
   }
 }
-
 
 @media (max-width: 768px) {
   .book-body {

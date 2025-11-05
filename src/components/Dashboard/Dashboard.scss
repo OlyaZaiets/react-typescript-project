@@ -1,12 +1,9 @@
 .reading-dashboard {
-  // border: solid red 2px;
-  // background: linear-gradient(180deg, #06121f 0%, #0a1628 100%);
   display: flex;
   flex-direction: column;
-
   align-content: center;
   color: #e6e8ed;
-  padding: 3rem 2rem;
+  // padding: 3rem 2rem;
   border-radius: 8px;
   text-align: center;
   max-width: 1000px;
@@ -84,9 +81,8 @@
       transform: translateY(-3px);
     }
 
-
       h2 {
-        color: #5c8ef2;
+        color: #e6e6e6;
         font-size: 2.4rem;
         margin-bottom: 0.3rem;
       }

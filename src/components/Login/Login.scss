@@ -3,29 +3,21 @@
 .login-wrapper {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1.5fr;
-  grid-template-rows: 0.3fr 1fr 0.3fr;
-  // min-height: calc(100vh - 96px);
-  // height: 100vh;
-  border: solid 2px red;
+  grid-template-rows: 0.1fr 1fr 0.1fr;
   background-color: url('../../assets/Catalogue.png');
-
 }
 
 .login-container {
   grid-column: 2/3;
   grid-row: 2/3;
   border-radius: 8px;
-
-  border: solid 2px rgb(187, 20, 202);
-
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-
 .wrapper {
-  // border: solid 2px pink;
-  // margin: 40px;
   padding: 40px;
-  }
+}
   .login-text {
     h1, p {
       color: $color-light-text;
@@ -36,14 +28,12 @@
     h1 {
       font-size: $font-size-ml;
       padding-bottom: 10px;
-
     }
 
     p {
       font-size: $font-size-sm;
       padding-bottom: 10px;
     }
-
 }
 
 .user-info {
@@ -61,9 +51,28 @@
     border-radius: 8px;
     border: none;
     font-size: $font-size-sm;
-
-    // padding: 8px;
   }
+}
+
+.error-message {
+  color: #ff6b6b;
+  background: rgba(255, 82, 82, 0.1);
+  border: 1px solid rgba(255, 82, 82, 0.4);
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-align: center;
+  font-size: $font-size-sm;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .button-login {
@@ -79,8 +88,17 @@
 
 .registration-question{
   display: inline;
-  color: magenta;
+  color: #5c8ef2;
   font-size: $font-size-sm;
   padding-right: 10px;
+}
+.signup-link {
+  color: #ff5252; 
+  text-decoration: none;
+  font-weight: $font-size-sm;
 
+  &:hover {
+    color: #ffa5a5; 
+    text-decoration: underline; 
+  }
 }

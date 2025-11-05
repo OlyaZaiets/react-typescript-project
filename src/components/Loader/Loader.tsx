@@ -8,8 +8,8 @@ import './Loader.scss';
 
 export function CircularProgressWithLabel(props: CircularProgressProps & { value: number }) {
   return (
-    <Box position="relative" display="inline-flex">
-      <CircularProgress variant="determinate" 
+    <Box position='relative' display='inline-flex'>
+      <CircularProgress variant='determinate' 
       {...props} 
       sx={{ color: '#ffde59' }} 
       />
@@ -18,14 +18,14 @@ export function CircularProgressWithLabel(props: CircularProgressProps & { value
         left={0}
         bottom={0}
         right={0}
-        position="absolute"
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
+        position='absolute'
+        display='flex'
+        alignItems='center'
+        justifyContent='center'
       >
         <Typography 
-          variant="caption" 
-          component="div" 
+          variant='caption' 
+          component='div' 
           sx={{
           fontSize: '2rem',
           fontFamily: 'Merriweather, serif',

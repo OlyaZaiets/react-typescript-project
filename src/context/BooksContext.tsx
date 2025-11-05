@@ -1,5 +1,5 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import type { BookItem, BooksApiResponse } from "../types"
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import type { BookItem, BooksApiResponse } from '../types'
 
 interface BooksContextType {
   books: BookItem[] | null;
@@ -16,7 +16,8 @@ export const BooksProvider = ( { children }: {children: ReactNode}) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const key = import.meta.env.VITE_GOOGLE_BOOKS_API_KEY;;
-  const criterion = 'inauthor:"Stephen King" AND books English';
+  const criterion = 'inauthor:"Stephen King"';
+  // const criterion = 'inauthor:"Stephen King" AND books English';
   const MAX_RESULTS_PER_PAGE = 40; // Максимум, що дозволяє API
   const MAX_TOTAL_FETCH = 200; // Ліміт для уникнення надмірної кількості запитів
   
@@ -30,7 +31,7 @@ export const BooksProvider = ( { children }: {children: ReactNode}) => {
     try {
 
       while (startIndex < totalItems && allBooks.length < MAX_TOTAL_FETCH) {
-        const url = `https://www.googleapis.com/books/v1/volumes?q=${criterion}&key=${key}&${maxResultsParam}&startIndex=${startIndex}`;
+        const url = `https://www.googleapis.com/books/v1/volumes?q=${criterion}&langRestrict=en&key=${key}&${maxResultsParam}&startIndex=${startIndex}`;
 
         const response = await fetch(url);
         if (!response.ok) {
@@ -77,7 +78,6 @@ export const BooksProvider = ( { children }: {children: ReactNode}) => {
       fetchBooks();
     }, []);
 
-
   return (
     <BooksContext.Provider value={ {books, setBooks, searchQuery, setSearchQuery} }>
       {children}
@@ -87,7 +87,6 @@ export const BooksProvider = ( { children }: {children: ReactNode}) => {
 
 export const useBooks = () => {
   const context = useContext(BooksContext);
-  if (!context) throw new Error("useBooks must be used within BooksProvider");
+  if (!context) throw new Error('useBooks must be used within BooksProvider');
   return context;
-
 }

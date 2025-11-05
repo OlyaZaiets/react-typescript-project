@@ -67,7 +67,6 @@ body {
   }
 }
 
-/* 🔹 Планшети (до 1024px) */
 @media (max-width: 1024px) {
   .main-container {
     grid-template-columns: 1fr 1fr;
@@ -95,7 +94,6 @@ body {
   }
 }
 
-/* 🔹 Телефони (до 768px) */
 @media (max-width: 768px) {
   .main-container {
     display: flex;

@@ -8,19 +8,12 @@ import { BookActions } from '../BookActions/BookActions';
 import NoCoverBook from '../../assets/No_cover_book.jpg'; 
 import { useBooks } from '../../context/BooksContext';
 
-
-
-// interface CatalogueProps {
-//   books: BookItem[] | null;
-// }
-
 export const CatalogueList = () => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
   const { books, searchQuery } = useBooks();
-
 
   useEffect(() => {
     if (books) {
@@ -46,7 +39,6 @@ export const CatalogueList = () => {
     );
   }
 
-  // Якщо книги вже є, але ми ще показуємо loader (анімація)
   if (loading) {
     return (
       <div className='loading-container'>
@@ -69,9 +61,6 @@ export const CatalogueList = () => {
           '<mark>$1</mark>'
         )
       : title;
-
-
-
 
   const booksWithCustomCover = importedBooksWithoutCover as { 
     id: string; 
@@ -102,7 +91,7 @@ export const CatalogueList = () => {
   };
 
   return (
-  <div className='container'>
+    <div className='container'>
       <div className='catalogue-introduction'>
         <h1>Interactive Book Catalogue: Mark Read, Favorite & Comment</h1>
         <p> Welcome to the King Catalogue!
@@ -111,7 +100,7 @@ export const CatalogueList = () => {
           to share your journey through the worlds of the Master Storyteller!
         </p>
       </div>
-      <h2 className='info-for-you'>All books: {filtered?.length || 0}</h2>
+
       <div className='book-wrapper'>
         {currentBooks.map(book => {
         const volumeInfo = book.volumeInfo;
@@ -159,10 +148,6 @@ export const CatalogueList = () => {
           <ChevronRight />
         </button>
       </div>
-
-
-  </div>
-
-    
+    </div>
   )
 }

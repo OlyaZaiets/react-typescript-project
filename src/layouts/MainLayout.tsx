@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom"
-import { Header } from "../components/Header/Header"
+import { Outlet } from 'react-router-dom'
+import { Header } from '../components/Header/Header'
 import './MainLayout.scss';
 
 export const MainLayout = () => {
@@ -10,6 +10,5 @@ export const MainLayout = () => {
         <Outlet />
       </main>
     </>
-
   )
 }

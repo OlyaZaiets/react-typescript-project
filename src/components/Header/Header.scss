@@ -2,27 +2,23 @@
 
 .header-container {
   display: flex;
-  // border: solid 2px red;
   padding: 1rem 2rem;
   color: $color-light-text;
-  // padding: 0 50px;
   justify-content: space-between;
   align-items: center;
+  background: rgba(0, 0, 0, 0.5)
 }
-
 
 .logo-text {
   color: $color-light-text;
   font-size: $font-size-lg;
   text-decoration: none;
-  
 }
 
 .search-container {
   flex: 1;
   margin: 0 20px;
 
-  
   input {
     width: 100%;
     box-sizing: border-box;
@@ -35,10 +31,22 @@
 
 .icons-container {
   display: flex;
-  // justify-content: space-around;
   gap: 30px;
 
 }
+
+.nav-link {
+      background: none;
+      border: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.2s ease, color 0.2s ease;
+
+      &:hover {
+        transform: scale(1.1);
+        color: $background-color-hover;
+      }
+    }
 
 .head-icon {
   width: 34px;
@@ -71,7 +79,6 @@
 }
 
 
-/* 🔹 Планшети (до 1024px) */
 @media (max-width: 1024px) {
   .header-container {
     flex-wrap: wrap;
@@ -97,7 +104,6 @@
     font-size: 1.4rem;
   }
 }
-
 
 @media (max-width: 768px) {
   .header-container {
@@ -140,7 +146,6 @@
     }
   }
 
-  /* Поле пошуку тепер окремим блоком під хедером */
   .search-container {
     order: 3;
     flex: 1 1 100%;

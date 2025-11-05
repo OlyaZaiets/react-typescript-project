@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, type User } from "firebase/auth";
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { useNavigate } from "react-router-dom";
-import { auth } from "../config/firebase";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, type User } from 'firebase/auth';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../config/firebase';
 
 interface AuthContextType {
   user: User | null;
@@ -26,7 +26,7 @@ export const AuthProvider = ( { children } : {children: ReactNode} ) => {
       console.log(userCredential);
       navigate('/');
     } catch (error) {
-      console.error("Registration error:", error);
+      console.error('Registration error:', error);
     }
   }
 
@@ -34,17 +34,17 @@ export const AuthProvider = ( { children } : {children: ReactNode} ) => {
       try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password)
         setUser(userCredential.user);
-        console.log("Logged in:", userCredential.user);
+        console.log('Logged in:', userCredential.user);
         navigate('/');
       } catch (error: any) {
-      console.error("Login error:", error.message);
+      console.error('Login error:', error.message);
       throw error;
       }
 
   } 
   const logout = async () => {
     try {
-      console.log("Logout clicked");
+      console.log('Logout clicked');
       await signOut(auth);
       setUser(null);
       navigate('/');
@@ -62,17 +62,14 @@ export const AuthProvider = ( { children } : {children: ReactNode} ) => {
   }, [])
   
   return (
-      <AuthContext.Provider value={{user, loading, setUser, login, logout, register, }}>
+      <AuthContext.Provider value={{ user, loading, setUser, login, logout, register }}>
         {children}
       </AuthContext.Provider>
   )
-
-
 }
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
     if (!context) throw new Error('useAuth must be used within AuthProvider');
   return context;
-}
-  
+} 
