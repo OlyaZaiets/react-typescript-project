@@ -46,11 +46,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     setError(message); 
     console.error('Login error:', error);
   }
-
-  console.log('Email:', email);
-  console.log('Password:', password);
 };
-
 
   return (
     <div className='login-wrapper'>
