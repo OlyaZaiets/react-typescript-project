@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import './BookActions.scss';
 import { BookCheck, BookHeart, BookPlus } from 'lucide-react';
 import type { BookItem } from '../../types';
-import { deleteDoc, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { deleteDoc, doc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import toast from 'react-hot-toast';
 import { useUserBooks } from '../../context/UserBooksContext';
