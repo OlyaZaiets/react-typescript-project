@@ -1,0 +1,11 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  
+  <path d="M7 15C7 12 9 10 12 10C15 10 17 12 17 15C17 18 15 20 12 20C9 20 7 18 7 15Z" stroke="#333333" stroke-width="2"/>
+  <path d="M25 15C25 12 23 10 20 10C17 10 15 12 15 15C15 18 17 20 20 20C23 20 25 18 25 15Z" stroke="#333333" stroke-width="2"/>
+  
+  <line x1="16" y1="15" x2="16" y2="15" stroke="#333333" stroke-width="2" />
+  <line x1="13" y1="15" x2="19" y2="15" stroke="#333333" stroke-width="2" />
+
+  
+  <text x="50%" y="27" font-family="serif" font-size="10" fill="#CC0000" text-anchor="middle" dominant-baseline="middle">SK</text>
+</svg>

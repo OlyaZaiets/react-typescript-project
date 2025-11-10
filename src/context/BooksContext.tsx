@@ -17,14 +17,13 @@ export const BooksProvider = ( { children }: {children: ReactNode}) => {
 
   const key = import.meta.env.VITE_GOOGLE_BOOKS_API_KEY;;
   const criterion = 'inauthor:"Stephen King"';
-  // const criterion = 'inauthor:"Stephen King" AND books English';
-  const MAX_RESULTS_PER_PAGE = 40; // Максимум, що дозволяє API
-  const MAX_TOTAL_FETCH = 200; // Ліміт для уникнення надмірної кількості запитів
+  const MAX_RESULTS_PER_PAGE = 40; 
+  const MAX_TOTAL_FETCH = 200;
   
   async function fetchBooks(): Promise<void> {
     let allBooks: BookItem[] = []; 
     let startIndex = 0;
-    let totalItems = 1; // Початкове значення, щоб цикл while розпочався
+    let totalItems = 1; 
 
     const maxResultsParam = `maxResults=${MAX_RESULTS_PER_PAGE}`;
     

@@ -5,13 +5,17 @@ import App from './App.tsx';
 import { AuthProvider } from './context/AuthContext.tsx';
 import { BrowserRouter } from 'react-router-dom';
 import { BooksProvider } from './context/BooksContext.tsx';
+import { UserBooksProvider } from './context/UserBooksContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <AuthProvider>
         <BooksProvider>
-          <App />
+          <UserBooksProvider>
+            <App />
+          </UserBooksProvider>
+
         </BooksProvider>
       </AuthProvider>
     </BrowserRouter>

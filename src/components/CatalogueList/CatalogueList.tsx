@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { BookActions } from '../BookActions/BookActions';
 import NoCoverBook from '../../assets/No_cover_book.jpg'; 
 import { useBooks } from '../../context/BooksContext';
+import { useUserBooks } from '../../context/UserBooksContext';
 
 export const CatalogueList = () => {
   const [loading, setLoading] = useState(true);
@@ -14,6 +15,7 @@ export const CatalogueList = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   const { books, searchQuery } = useBooks();
+  const { loadingUserBooks } = useUserBooks();
 
   useEffect(() => {
     if (books) {
@@ -30,7 +32,7 @@ export const CatalogueList = () => {
     }
   }, [books]);
 
-    if (!books) {
+    if (!books || loadingUserBooks ) {
     return (
       <div className='loading-container'>
         <CircularProgressWithLabel value={progress} />
@@ -53,6 +55,14 @@ export const CatalogueList = () => {
         b.volumeInfo?.title?.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : books;
+
+    if (filtered.length === 0) {
+      return (
+        <div className="no-results">
+          <p>No books found matching "{searchQuery}".</p>
+        </div>
+      );
+    }
 
   const highlight = (title: string) =>
     searchQuery
@@ -112,6 +122,10 @@ export const CatalogueList = () => {
           volumeInfo?.imageLinks?.smallThumbnail ||
           customCoverData?.coverUrl ||
           NoCoverBook;
+
+        if (imageSrc.startsWith('http://')) {
+          imageSrc = imageSrc.replace('http://', 'https://');
+        }
 
           return (
             <div key={book.id} 

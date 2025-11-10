@@ -6,6 +6,7 @@ import type { BookItem } from '../../types';
 import { deleteDoc, doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { db } from '../../config/firebase';
 import toast from 'react-hot-toast';
+import { useUserBooks } from '../../context/UserBooksContext';
 
 interface BookActionsProps {
   book: BookItem
@@ -13,49 +14,23 @@ interface BookActionsProps {
 
 export const BookActions = ( { book }: BookActionsProps ) => {
   const { user } = useAuth();
-  const [isRead, setIsRead] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [isPlanned, setIsPlanned] = useState(false);
+  const { readBooks, favoriteBooks, plannedBooks, loadingUserBooks } = useUserBooks();
 
-  // check books in Firebase store 
-  useEffect(() => {
-    if(!user) return;
-    const checkBookStatus = async() => {
-      try {
-        const readRef= doc(db, 'users', user.uid, 'read', book.id);
-        const favoriteRef= doc(db, 'users', user.uid, 'favorite', book.id);
-        const planRef= doc(db, 'users', user.uid, 'toRead', book.id)
+  if (loadingUserBooks) {
+    return (
+      <div className="button-container loading">
+        <BookCheck className="book-icons" />
+        <BookHeart className="book-icons" />
+        <BookPlus className="book-icons" />
+      </div>
+    );
+  }
 
-        const [readSnap, favSnap, planSnap] = await Promise.all ([
-          getDoc(readRef),
-          getDoc(favoriteRef),
-          getDoc(planRef)
-        ]);
+  const isRead = readBooks.has(book.id);
+  const isFavorite = favoriteBooks.has(book.id);
+  const isPlanned = plannedBooks.has(book.id);
 
-        setIsRead(readSnap.exists());
-        setIsFavorite(favSnap.exists());
-        setIsPlanned(planSnap.exists());
-
-
-        console.log('READ snapshot:', readSnap);
-        console.log('FAVORITES snapshot:', favSnap);
-        console.log('PLAN snapshot:', planSnap);
-
-        console.log('Statuses:', {
-          read: readSnap.exists(),
-          favorites: favSnap.exists(),
-          toRead: planSnap.exists(),
-    });
-        
-      } catch (error) {
-        console.log('Error checking book status:', error)
-      }
-    }
-
-    checkBookStatus();
-  }, [user, book.id])
-
-  //Read
+  //Read work more
   const handleAddToRead  = async () => {
     if (!user) {
       toast('Please log in to mark books', {icon : '⚠️'})
@@ -65,11 +40,7 @@ export const BookActions = ( { book }: BookActionsProps ) => {
     
     if (isRead) {
       await deleteDoc(docRef);
-      setIsRead(false);
       toast('Remove from Read List 📖', { icon: '❌' });
-      console.log('Removed from READ');
-      
-      
     } else {
       await setDoc(docRef, {
         title: book.volumeInfo.title,
@@ -77,12 +48,9 @@ export const BookActions = ( { book }: BookActionsProps ) => {
         category: book.volumeInfo.categories || null,
         createdAt: serverTimestamp()
     })
-
-    setIsRead(true);
     toast.success('Add to Read List 📖')
-    console.log('Add to READ');
-    }
   }
+}
 
 // Fav
   const handleAddToFavorite  = async () => {
@@ -93,10 +61,7 @@ export const BookActions = ( { book }: BookActionsProps ) => {
     const docRef = doc(db, 'users', user.uid, 'favorite', book.id)
     if (isFavorite) {
       await deleteDoc(docRef);
-      setIsFavorite(false);
       toast('Removed from Favorites ❤️', { icon: '❌' });
-      console.log('Removed from FAV');
-      
     } else {
       await setDoc(docRef, {
         title: book.volumeInfo.title,
@@ -104,10 +69,7 @@ export const BookActions = ( { book }: BookActionsProps ) => {
         category: book.volumeInfo.categories || null,
         createdAt: serverTimestamp()
       })
-
-    setIsFavorite(true);
     toast.success('Added to Favorites ❤️');
-    console.log('Add to FAV');
     }
   }
 
@@ -120,9 +82,7 @@ export const BookActions = ( { book }: BookActionsProps ) => {
     const docRef = doc(db, 'users', user.uid, 'toRead', book.id)
     if (isPlanned) {
       deleteDoc(docRef);
-      setIsPlanned(false);
       toast('Remove from Read Plan 🔮', {icon: '❌'})
-      console.log('first')
     } else {
       await setDoc(docRef, {
         title: book.volumeInfo.title,
@@ -130,9 +90,7 @@ export const BookActions = ( { book }: BookActionsProps ) => {
         category: book.volumeInfo.categories || null,
         createdAt: serverTimestamp()
     })
-    setIsPlanned(true);
     toast.success('Add to Read Plan 🔮')
-    console.log('Add to PLAN');
     }
 }
 

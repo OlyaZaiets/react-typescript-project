@@ -89,6 +89,7 @@ export const BookPage = () => {
     setComment('');
   }
 
+
   const handleDelete = async (commentId: string) => {
   if (!id || !user) return;
 
@@ -110,15 +111,15 @@ export const BookPage = () => {
   const { volumeInfo } = book;
   const { title, pageCount, description, categories, averageRating, imageLinks } = volumeInfo;
 
+  const imageSrc = imageLinks?.thumbnail
+    ? imageLinks.thumbnail.replace('http://', 'https://')
+    : NoCoverBook;
+
   return(
     <div className='book-container'>
       <div className='book-body'>
         <div className='book-left-cover'>
-          {imageLinks?.thumbnail ? (
-            <img src={imageLinks.thumbnail} alt={title} className='book-cover' />
-          ) : (
-            <img src={NoCoverBook} alt='No cover available' className='book-cover'/>
-          )}
+          <img src={imageSrc} alt={title} className='book-cover' />
         </div>
 
         <div className='book-info'>

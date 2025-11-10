@@ -21,7 +21,6 @@ export const HomePage = () => {
                 >
                   View Catalogue
                 </Link>
-
                 <Link 
                   to='/dashboard' 
                   className='btn'

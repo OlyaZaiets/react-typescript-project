@@ -19,6 +19,7 @@ export const AuthProvider = ( { children } : {children: ReactNode} ) => {
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
 
+
   const register = async (email: string, password: string) => {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password)
@@ -53,6 +54,8 @@ export const AuthProvider = ( { children } : {children: ReactNode} ) => {
     }
   }
 
+
+  //  show us how you maintain an authenticated user state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user || null)

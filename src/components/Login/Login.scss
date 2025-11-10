@@ -55,13 +55,13 @@
 }
 
 .error-message {
-  color: #ff6b6b;
-  background: rgba(255, 82, 82, 0.1);
+  color: #c41313;
+  background: rgba(250, 205, 205, 0.1);
   border: 1px solid rgba(255, 82, 82, 0.4);
   padding: 10px 15px;
   border-radius: 6px;
   text-align: center;
-  font-size: $font-size-sm;
+  font-size: $font-size-md;
   width: 100%;
   box-sizing: border-box;
 }
@@ -84,12 +84,13 @@
   border: none;
   font-size: $font-size-sm;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .registration-question{
   display: inline;
-  color: #5c8ef2;
-  font-size: $font-size-sm;
+  color: #c7cedd;
+  font-size: $font-size-md;
   padding-right: 10px;
 }
 .signup-link {
