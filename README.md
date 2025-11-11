@@ -1,75 +1,30 @@
-# React + TypeScript + Vite
+# Stephen King Universe 👑📚
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Responsive web application dedicated to exploring the world of Stephen King’s books, allowing users to search, view details, and comment on their favorite titles.
 
-Currently, two official plugins are available:
+🎬 DEMO: [Add your demo link here]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+💻 Stack technologies used:
+⚛️ React + TypeScript
 
-## React Compiler
+Used React to build a fast, component-based user interface and TypeScript to ensure type safety, scalability, and maintainability across the project.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+🎨 SCSS Modules
 
-Note: This will impact Vite dev & build performances.
+Styled components with SCSS modules for better encapsulation and reusability. The design follows a dark, cinematic aesthetic inspired by Stephen King’s universe.
 
-## Expanding the ESLint configuration
+🔥 Firebase (Auth + Firestore)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Integrated Firebase Authentication for secure user sign-up and login, and Firestore to store and manage user comments and book data in real time.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🔎 Google Books API
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Connected to the Google Books API to fetch book information, covers, and ratings dynamically.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+🧭 React Router
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Implemented React Router for seamless navigation between pages like Home, Login, Registration, and Book Details.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🧩 Lucide React Icons
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Used Lucide icons for clean, scalable vector icons that enhance the UI’s readability and style.
