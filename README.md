@@ -2,8 +2,7 @@
 
 Responsive web application dedicated to exploring the world of Stephen King’s books, allowing users to search, view details, and comment on their favorite titles.
 
-[![View Demo](https://img.shields.io/badge/View%20Demo-Website-blue?style=for-the-badge)](https://stephenking-seven.vercel.app)
-
+# [**Live Demo – Stephen King Universe**](https://stephenking-seven.vercel.app) 🎬
 
 
 💻 Stack technologies used:
